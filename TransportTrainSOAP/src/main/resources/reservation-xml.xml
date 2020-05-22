@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+					xmlns:us="http://www.transport.com/ws/reservationsoap">
+					<SOAP-ENV:Header/>
+					<SOAP-ENV:Body>
+						<us:getReservation>
+						
+							<us:train>
+								<us:villeDepart> Tunis</us:villeDepart>
+								<us:villeArrivee>Hammamet</us:villeArrivee>
+								
+							</us:train>
+						</us:getReservation>
+					</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

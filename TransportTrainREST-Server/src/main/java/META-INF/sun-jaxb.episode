@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
+Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
+Généré le : 2020.05.22 à 11:13:41 PM WAT 
+
+  -->
+  <bindings xmlns:tns="http://www.transport.com/ws/reservationsoap" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.transport.customer"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="~tns:IntervalleTemps">
+      <class ref="com.transport.customer.IntervalleTemps"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Train">
+      <class ref="com.transport.customer.Train"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Client">
+      <class ref="com.transport.customer.Client"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getReservation">
+      <class ref="com.transport.customer.GetReservation"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ReservationReponse">
+      <class ref="com.transport.customer.ReservationReponse"/>
+    </bindings>
+  </bindings>
+</bindings>

@@ -1,0 +1,76 @@
+<wsdl:definitions
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sch="http://www.transport.com/ws/reservationsoap"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.transport.com/ws/reservationsoap"
+	targetNamespace="http://www.transport.com/ws/reservationsoap">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			targetNamespace="http://www.transport.com/ws/reservationsoap">
+			<xsd:element name="intervalleTemps"
+				type="tns:IntervalleTemps" />
+			<xsd:complexType name="IntervalleTemps">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:long" />
+					<xsd:element name="dateDepart" type="xsd:date" />
+					<xsd:element name="dateArrivee" type="xsd:date" />
+					<xsd:element name="tempsDepart" type="xsd:string" />
+					<xsd:element name="tempsArrivee" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="train" type="tns:Train" />
+			<xsd:complexType name="Train">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:long" />
+					<xsd:element name="villeDepart" type="xsd:string" />
+					<xsd:element name="villeArrivee" type="xsd:string" />
+					<xsd:element name="intervalleTemps"
+						type="tns:IntervalleTemps" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="client" type="tns:Client" />
+			<xsd:complexType name="Client">
+				<xsd:sequence>
+					<xsd:element name="name" type="xsd:string" />
+					<xsd:element name="prenom" type="xsd:string" />
+					<xsd:element name="cin" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="getReservation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="client" type="tns:Client" />
+						<xsd:element name="train" type="tns:Train" />
+						<xsd:element name="dateReservation" type="xsd:date" />
+						<xsd:element name="tempsReservation" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ReservationReponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="train" type="tns:Train" />
+						<xsd:element name="client" type="tns:Client" />
+						<xsd:element name="dateReservation" type="xsd:date" />
+						<xsd:element name="tempsReservation" type="xsd:string" />
+						<xsd:element name="isReserve" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:portType name="ReservationWSDL">
+	</wsdl:portType>
+	<wsdl:binding name="ReservationWSDLSoap11"
+		type="tns:ReservationWSDL">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+	</wsdl:binding>
+	<wsdl:service name="ReservationWSDLService">
+		<wsdl:port binding="tns:ReservationWSDLSoap11"
+			name="ReservationWSDLSoap11">
+			<soap:address location="http://localhost:8080/ws" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
